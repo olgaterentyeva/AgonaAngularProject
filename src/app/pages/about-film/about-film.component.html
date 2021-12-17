@@ -1,0 +1,41 @@
+<app-header>
+  <h1>О фильме</h1>
+
+  <form [formGroup]="form">
+    <app-toggle formControlName="toggle"></app-toggle>
+
+    <div class="filmList">
+      <label> Название
+        <input
+          class="search"
+          type="search"
+          formControlName="searchInput"
+          placeholder="Например, Титаник"
+        >
+      </label>
+
+      <div class="films__container">
+        <ng-container *ngIf = "form.get('searchInput')!.value.length !== 0; else initState">
+          <ng-container *ngIf="(films$ | async)!.length > 0; else notFound">
+            <app-film (clickedOnPoster) = "onClick($event)"></app-film>
+          </ng-container>
+        </ng-container>
+
+        <ng-template #initState>
+          <div></div>
+        </ng-template>
+
+        <ng-template #notFound>
+          <div class="notFound">
+            <div class="notFound__img"></div>
+            <div class="notFound__info">
+              <p>Фильм не найден</p>
+              <p>Добавьте его вручную</p>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </form>
+
+</app-header>

@@ -1,0 +1,65 @@
+.search
+  width: 441px
+  height: 60px
+  border: none
+  border-bottom: 1px solid rgba(60, 60, 67, 0.3)
+  background: transparent
+  font-family: SF Pro Text, sans-serif
+  font-style: normal
+  font-weight: normal
+  font-size: 17px
+  line-height: 22px
+  color: black
+  margin-left: 50px
+
+label
+  font-family: SF Pro Display, sans-serif
+  font-style: normal
+  font-weight: bold
+  font-size: 22px
+  line-height: 28px
+  letter-spacing: 0.8px
+  color: #000000
+  margin-left: 50px
+
+.film
+  display: flex
+  align-items: center
+  margin-top: 20px
+  margin-left: 50px
+
+  &:not(:last-child)
+    margin-bottom: 16px
+
+  img
+    margin-right: 16px
+    width: 90px
+    height: 110px
+
+  h2
+    color: black
+    margin: 0
+
+  span
+    color: black
+
+  &__container
+    display: flex
+    flex-direction: column
+
+h1
+  margin: 0
+  text-align: center
+  padding-bottom: 37px
+
+.notFound
+  display: flex
+
+  &__img
+    background: rgba(0, 0, 0, 0.04)
+    width: 90px
+    height: 110px
+
+  &__info
+    display: flex
+    flex-direction: column
