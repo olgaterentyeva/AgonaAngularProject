@@ -1,10 +1,12 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -15,13 +17,15 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 })
 export class ToggleComponent implements ControlValueAccessor {
 
-  innerValue: boolean | undefined;
+  innerValue: boolean = true;
 
   constructor() {
   }
 
-  onChangeCallback = (v:any) => {};
-  onTouchedCallback = () => {};
+  onChangeCallback = (v: any) => {
+  };
+  onTouchedCallback = () => {
+  };
 
 
   //чтобы форма поняла что внутри формы произошло изменение
@@ -36,7 +40,6 @@ export class ToggleComponent implements ControlValueAccessor {
 
   //компонент понимает какое значение там написано помоему
   writeValue(value: boolean): void {
-    console.log(value);
     if (value !== this.innerValue) {
       this.innerValue = value
     }
@@ -50,3 +53,5 @@ export class ToggleComponent implements ControlValueAccessor {
     }
   }
 }
+
+// TODO стилизовать тогл свитч

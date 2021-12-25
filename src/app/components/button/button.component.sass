@@ -1,0 +1,20 @@
+@import "../../styles/mixins.sass"
+
+\:host
+  ::ng-deep
+    img
+      margin-right: 12px
+      //этот стиль нужен для лупы, он у нас прилетает из ng-content снаружи
+
+.btn
+  border-radius: 21.5px
+  border: none
+  background: none
+  display: flex
+  align-items: center
+  padding: 8px 12px
+  @include regular-text
+
+  &__primary
+    color: white
+    background: $c-primary

@@ -1,32 +1,31 @@
-<header class="header">
-  <div class="headerCont">
-    <div class="leftSide">
-      <div class="collectionCircle">
-        <div class="collection">
-          <img src="./assets/circle.svg" alt="circle">
-          <p class="collectionText">Коллекция</p>
-        </div>
-      </div>
-      <div class="addWithPlus">
+<header class="header__wrapper">
+  <div class="header">
+    <nav>
+      <a routerLink="/" class="link">
+        <img src="./assets/circle.svg" alt="circle">
+        Коллекция
+      </a>
+
+      <a routerLink="/" class="link">
         <img src="./assets/plus.svg" class="plus" alt="plus">
-        <p class="add">Добавить</p>
-      </div>
-    </div>
+        Добавить
+      </a>
+    </nav>
 
-    <img src="./assets/short-logo.svg" class="shortLogo" alt="logo">
+    <a routerLink="/" class="logo">
+      <img src="./assets/short-logo.svg" alt="logo">
+    </a>
 
-    <div class="rightSide">
-      <img src="./assets/loupe.svg" class="loupe" alt="loupe">
-      <p class="search">Поиск</p>
-      <img src="./assets/profile.svg" class="profile" alt="profile">
+    <div class="actions">
+      <app-button>
+        <img src="./assets/loupe.svg" alt="loupe">
+        Поиск
+      </app-button>
+      <img src="./assets/profile.svg" class="avatar" alt="profile">
     </div>
   </div>
 </header>
 
-<div>
-  <p>надо посмотреть пару рустема и все переделать</p>
-</div>
-
-<main class="mainCont">
+<main>
   <ng-content></ng-content>
 </main>

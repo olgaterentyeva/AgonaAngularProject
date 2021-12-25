@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {FilmService} from "../../services/film.service";
 import {delay, distinctUntilChanged} from "rxjs";
 
@@ -11,19 +11,21 @@ import {delay, distinctUntilChanged} from "rxjs";
   }
 )
 export class AboutFilmComponent {
-  form: FormGroup;
+  form: FormGroup = new FormGroup({
+    "toggle": new FormControl
+  })
   films$ = this.filmService.films$;
   value = '';
+  toggle = true;
 
   constructor(private fb: FormBuilder,
               private filmService: FilmService) {
     this.form = this.fb.group({
       searchInput: [],
-      toggle:["true"]
+      toggle: true
     });
 
-    // @ts-ignore
-    this.form.get('searchInput').valueChanges
+    this.form.get('searchInput')!.valueChanges
       .pipe(
         delay(700),
         distinctUntilChanged(),
@@ -32,9 +34,8 @@ export class AboutFilmComponent {
       this.filmService.searchFilm(res);
     })
 
-    // @ts-ignore
-    this.form.get('toggle').valueChanges.subscribe(res => {
-      console.log(res)
+    this.form.get('toggle')!.valueChanges.subscribe(res => {
+    //  TODO сделать смену контента при нажатии на тоггл
     })
   }
 
