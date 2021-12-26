@@ -1,45 +1,44 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {FilmService} from "../../services/film.service";
 import {delay, distinctUntilChanged} from "rxjs";
 
 @Component({
-    selector: 'app-about-film',
-    templateUrl: './about-film.component.html',
-    styleUrls: ['./about-film.component.sass'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-  }
-)
+  selector: 'app-about-film',
+  templateUrl: './about-film.component.html',
+  styleUrls: ['./about-film.component.sass']
+})
 export class AboutFilmComponent {
-  form: FormGroup = new FormGroup({
-    "toggle": new FormControl
-  })
+  form: FormGroup;
   films$ = this.filmService.films$;
   value = '';
-  toggle = true;
+  selected = 0;
+  filmNotFound = true;
 
-  constructor(private fb: FormBuilder,
-              private filmService: FilmService) {
+  constructor(
+    private fb: FormBuilder,
+    private filmService: FilmService
+  ) {
     this.form = this.fb.group({
       searchInput: [],
-      toggle: true
+      genre: [[]]
     });
 
     this.form.get('searchInput')!.valueChanges
       .pipe(
         delay(700),
-        distinctUntilChanged(),
+        distinctUntilChanged()
       )
       .subscribe(res => {
-      this.filmService.searchFilm(res);
-    })
-
-    this.form.get('toggle')!.valueChanges.subscribe(res => {
-    //  TODO сделать смену контента при нажатии на тоггл
-    })
+        this.filmService.searchFilm(res);
+      })
   }
 
-  onClick(value: boolean):void{
+  onToggleChange(n: number) {
+    this.selected = n;
+  }
+
+  onPosterClick(value: boolean):void{
     console.log(value);
   }
 }

@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, forwardRef} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 interface Option<T = string> {
-  label: string,
-  value: T
+  label: string;
+  value: T;
 }
 
 export const Genres: Array<Option> = [
@@ -23,16 +23,27 @@ export const Genres: Array<Option> = [
 ];
 
 @Component({
-  selector: 'app-genres-search',
-  templateUrl: './genres-search.component.html',
-  styleUrls: ['./genres-search.component.sass']
+  selector: 'app-genre-search',
+  templateUrl: './genre-search.component.html',
+  styleUrls: ['./genre-search.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => GenreSearchComponent),
+      multi: true
+    }
+  ]
 })
-export class GenresSearchComponent {
-  @Input() placeholder: string = 'Жанр';
-  overlayIsOpen: boolean = false;
-  selected: Array<Option> = [];
+export class GenreSearchComponent implements ControlValueAccessor {
+
   inputSearch: FormControl = new FormControl('');
+
   genres: Array<Option> = [];
+
+  overlayIsOpen: boolean = false;
+
+  selected: Array<Option> = [];
 
   onChangeCallback = (v: any) => {
   };
@@ -46,9 +57,10 @@ export class GenresSearchComponent {
         this.overlayIsOpen = false;
         return;
       }
+
       this.genres = Genres.filter(item => item.label.startsWith(value));
       this.overlayIsOpen = true;
-    })
+    });
   }
 
   writeValue(value: Array<Option>): void {
@@ -65,8 +77,8 @@ export class GenresSearchComponent {
     this.onTouchedCallback = fn;
   }
 
-  close(): void {
-    this.overlayIsOpen = false;
+  removeGenre(genre: Option): void {
+    this.selected = this.selected.filter(item => item.value !== genre.value);
   }
 
   selectGenre(genre: Option): void {
@@ -76,11 +88,10 @@ export class GenresSearchComponent {
 
     this.onChangeCallback(this.selected);
     this.onTouchedCallback();
-
   }
 
-  removeGenre(genre: Option): void {
-    this.selected = this.selected.filter(item => item.value !== genre.value);
+  close(): void {
+    this.overlayIsOpen = false;
   }
 
 }

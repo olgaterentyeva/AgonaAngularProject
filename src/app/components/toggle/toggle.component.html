@@ -1,15 +1,9 @@
-<div class="toggle__wrapper">
-  <button
-    class="toggle"
-    (click)="toggle(true)"
-    [class.toggle--active]="innerValue"
-  >КиноПоиск
-  </button>
-
-  <button
-    class="toggle"
-    (click)="toggle(false)"
-    [class.toggle--active]="!innerValue"
-  >Вручную
-  </button>
+<div class="toggle--wrapper">
+  <div class="toggle">
+    <ng-container *ngFor="let button of buttons; let i = index">
+      <button (click)="handleChange(i)" class="{{i === selected ? 'selected' : 'btn'}}">
+        {{button}}
+      </button>
+    </ng-container>
+  </div>
 </div>

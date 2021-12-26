@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 
 interface Film{
-  image: string;
-  name: string;
-  id: number;
+  image: string,
+  name: string,
+  id: number,
   year: string
 }
 
@@ -46,15 +46,13 @@ const MockFilms: Array<Film> = [
     image: "./assets/film/mank.svg" ,
     year: "2020"
   }
-
 ];
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmService {
-
-  films$:BehaviorSubject<Array<Film>> = new BehaviorSubject<Array<Film>>([]);
+  films$: BehaviorSubject<Array<Film>> = new BehaviorSubject<Array<Film>>([]);
 
   searchFilm(inputValue: string): void{
     if(!inputValue || inputValue.length < 1){

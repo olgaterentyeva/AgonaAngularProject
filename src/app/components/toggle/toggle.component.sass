@@ -1,32 +1,26 @@
-\:host
-  display: block
-  width: 100px
-
 .toggle
-  font-style: normal
-  font-weight: 600
-  font-size: 15px
-  line-height: 10px
-  letter-spacing: -0.24px
-  width: 343px
+  background: rgba(118, 118, 128, 0.12)
+  border-radius: 8px
   height: 32px
-  padding: 10px 12px
-  cursor: pointer
-  background: none
-  border: none
+  margin-bottom: 20px
 
-  &--active
-    background: white
-    border: 1px solid rgba(0, 0, 0, 0.04)
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04)
-    border-radius: 6.93px
-
-  &__wrapper
+  &--wrapper
     display: flex
-    align-items: center
-    justify-content: space-between
-    width: 343px
-    height: 32px
-    border: 1px solid #cecece
-    background: rgba(118, 118, 128, 0.12)
-    border-radius: 8.91px
+    justify-content: center
+
+  button
+    width: 170px
+    border-radius: 8px
+    cursor: pointer
+    border: none
+    font-weight: bold
+    font-size: 15px
+    line-height: 20px
+    background: transparent
+
+  .selected
+    border: 1px solid rgba(0, 0, 0, 0.04)
+    box-shadow: 0 3px 8px #0000001E, 0 3px 1px #0000000A
+    background: #fff
+
+

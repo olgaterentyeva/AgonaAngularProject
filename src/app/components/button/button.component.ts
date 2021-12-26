@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,15 +7,10 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
 
   @Input() theme: 'PRIMARY' | 'SECONDARY' = 'PRIMARY';//по дефолту ставим primary
   @Input() type: 'submit' | 'button' | 'reset' = 'button';
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
 }

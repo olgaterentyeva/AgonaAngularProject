@@ -1,54 +1,60 @@
-<app-header>
-  <div class="container">
-    <h1>О фильме</h1>
-
-
-    <app-toggle formControl = "toggle"></app-toggle>
-
+<app-header></app-header>
+<div class="mainCont">
+  <h1>О фильме</h1>
+  <app-toggle [selected]="selected" [buttons]="['КиноПоиск', 'Вручную']"
+              (onChanged)="onToggleChange($event)"></app-toggle>
+  <ng-container *ngIf="selected === 0; else manually">
     <form [formGroup]="form">
-      <ng-container *ngIf="form.get('toggle')!.value === false; else whenToggleFalse">
+      <!--    TODO сделать переключение по тогл посмотреть у оли-->
+      <!--    TODO сделать страницу вручную (жанры есть у рустема)-->
 
+      <div class="inputCont">
+        <label>Название</label>
+        <input
+          type="search"
+          formControlName="searchInput"
+          placeholder="Например, Титаник"
+        >
+      </div>
 
-        <div class="searchFilm">
+      <div class="film--container">
+        <ng-container *ngIf="(films$ | async)!.length > 0 || filmNotFound; else notFound">
+          <app-film (clickedOnPoster)="onPosterClick($event)"></app-film>
+        </ng-container>
 
-          <label>Название</label>
-
-          <input
-            class="search"
-            type="search"
-            placeholder="Например, Титаник"
-          >
-<!--            formControl="searchInput"-->
-        </div>
-
-        <div class="films__container">
-          <ng-container *ngIf="form.get('searchInput')!.value.length !== 0; else initState">
-            <ng-container *ngIf="(films$ | async)!.length > 0; else notFound">
-              <app-film (clickedOnPoster)="onClick($event)"></app-film>
-            </ng-container>
-          </ng-container>
-
-          <ng-template #initState>
-            <div></div>
-          </ng-template>
-
-          <ng-template #notFound>
-            <div class="notFound">
-              <div class="notFound__img"></div>
-              <div class="notFound__info">
-                <p>Фильм не найден</p>
-                <p>Добавьте его вручную</p>
-              </div>
-            </div>
-          </ng-template>
-        </div>
-      </ng-container>
+      </div>
     </form>
+  </ng-container>
+</div>
 
-    <ng-template #whenToggleFalse>
-      false
-    </ng-template>
-
+<ng-template #notFound>
+  <div class="notFound--info">
+    <div class="notFound--poster"></div>
+    <div class="notFound">
+      <p>Фильм не найден</p>
+      <a routerLink="">Добавьте его вручную</a>
+    </div>
   </div>
-</app-header>
+</ng-template>
+
+<ng-template #manually>
+  <div class="manualSearch">
+    <label>Название</label>
+    <input class="search" type="search" placeholder="Например, Титаник">
+    <label>Год</label>
+    <input class="search" type="search" placeholder="Укажите год выхода фильма">
+    <label>Описание</label>
+    <input class="search" type="search" placeholder="Напишите пару слов о сюжете">
+    <app-genre-search formControlName="genre"></app-genre-search>
+    <div class="poster">
+      <label>Постер</label>
+      <img src="assets/poster.svg" alt="poster">
+    </div>
+    <!--    сделать кнопку отдельной компонентой-->
+    <button class="saveButton">
+      <img src="/assets/plus.svg" alt="plus">
+      Сохранить
+    </button>
+  </div>
+</ng-template>
 

@@ -1,57 +1,31 @@
-import {ChangeDetectionStrategy, Component, forwardRef, OnInit} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Component, EventEmitter, Input, OnInit, Output, forwardRef} from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ToggleComponent),
+      useExisting: forwardRef(():any => ToggleComponent),
       multi: true
     }
   ]
 })
-export class ToggleComponent implements ControlValueAccessor {
+export class ToggleComponent implements OnInit {
 
-  innerValue: boolean = true;
+  constructor() { }
 
-  constructor() {
+  ngOnInit(): void {
   }
 
-  onChangeCallback = (v: any) => {
-  };
-  onTouchedCallback = () => {
-  };
+  @Input() buttons!: string[];
+  @Input() selected!: number;
+  @Output() onChanged = new EventEmitter<number>();
 
-
-  //чтобы форма поняла что внутри формы произошло изменение
-  registerOnChange(fn: any): void {
-    this.onChangeCallback = fn;
-  }
-
-  //что нажали на форму
-  registerOnTouched(fn: any): void {
-    this.onTouchedCallback = fn;
-  }
-
-  //компонент понимает какое значение там написано помоему
-  writeValue(value: boolean): void {
-    if (value !== this.innerValue) {
-      this.innerValue = value
-    }
-  }
-
-  toggle(value: boolean): void {
-    if (value !== this.innerValue) {
-      this.innerValue = value;
-      this.onChangeCallback(value);
-      this.onTouchedCallback();
-    }
+  handleChange(n: number) {
+    this.selected = n;
+    this.onChanged.emit(n);
   }
 }
-
-// TODO стилизовать тогл свитч

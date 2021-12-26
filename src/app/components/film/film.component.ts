@@ -6,15 +6,14 @@ import {AboutFilmComponent} from "../../pages/about-film/about-film.component";
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.sass']
 })
-export class FilmComponent {
+export class FilmComponent{
+
+  constructor(private aboutFilm: AboutFilmComponent){};
 
   @Input() films$ = this.aboutFilm.films$;
   @Output() clickedOnPoster: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private aboutFilm: AboutFilmComponent) {
-  }
-  seeFilmInfo(): void {
+  seeFilmDescription():void{
     this.clickedOnPoster.emit(true);
   }
-
 }
