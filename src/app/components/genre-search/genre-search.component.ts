@@ -19,6 +19,12 @@ export const Genres: Array<Option> = [
   }, {
     label: 'Фантастика',
     value: 'fantasy'
+  }, {
+    label: 'Детектив',
+    value: 'detective'
+  }, {
+    label: 'Триллер',
+    value: 'trailer'
   }
 ];
 
