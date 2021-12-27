@@ -1,16 +1,11 @@
 <div class="film" *ngFor="let item of films$ | async">
-<!--  <button (click)="seeFilmInfo()"> <img [src]="item.image" class="filmPoster" alt="poster"></button>-->
-
   <a [routerLink]="['/', item.id]">
     <img [src]="item.image" class="filmPoster" alt="poster">
   </a>
-
   <div class="filmDescription">
     <h2>{{item.name}}</h2>
     <span>{{item.year}}</span>
   </div>
-
-
 </div>
 
 

@@ -10,8 +10,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {OverlayModule} from "@angular/cdk/overlay";
 import { FilmComponent } from './components/film/film.component';
 import {ToggleComponent} from "./components/toggle/toggle.component";
-import { SaveButtonComponent } from './components/save-button/save-button.component';
 import { GenreSearchComponent } from './components/genre-search/genre-search.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import { GenreSearchComponent } from './components/genre-search/genre-search.com
     CollectionComponent,
     FilmComponent,
     ToggleComponent,
-    SaveButtonComponent,
     GenreSearchComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -14,10 +14,10 @@ export class FilmComponent {
 
   constructor(private aboutFilm: FilmInfoComponent) {
   }
+
   seeFilmInfo(): void {
     this.clickedOnPoster.emit(true);
   }
-
 
 }
 

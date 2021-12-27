@@ -1,0 +1,8 @@
+<button
+  [type] = "type"
+  class = "btn"
+  [class.btn--primary] = "theme === 'PRIMARY'"
+  [class.btn--secondary] = "theme === 'SECONDARY'"
+>
+  <ng-content></ng-content>
+</button>

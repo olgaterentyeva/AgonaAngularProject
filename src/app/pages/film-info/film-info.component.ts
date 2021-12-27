@@ -41,8 +41,6 @@ export class FilmInfoComponent {
   }
 
   onClick(value: boolean):void{
-  //
   }
-
 
 }

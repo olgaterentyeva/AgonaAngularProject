@@ -1,0 +1,20 @@
+@import "../../styles/mixins.sass"
+
+\:host
+  ::ng-deep
+    img
+      margin-right: 12px
+
+.btn
+  border-radius: 21.5px
+  background: none
+  border: none
+  display: flex
+  align-items: center
+  padding: 8px 12px
+  @include regular-text
+  cursor: pointer
+
+  &--primary
+    border: 3px solid $c-primary
+    color: $c-primary

@@ -1,24 +1,28 @@
-.toggleSwitch
-  background: #7676801F
+.toggle
+  background: rgba(118, 118, 128, 0.12)
   border-radius: 8px
-  height: 32px
-  display: flex
-  margin-bottom: 20px
+  margin-bottom: 40px
+  padding: 3px
+
+  &--wrapper
+    display: flex
+    justify-content: center
 
   button
     width: 170px
-    height: 90%
     border-radius: 8px
     cursor: pointer
     border: none
     font-weight: bold
     font-size: 15px
     line-height: 20px
+    background: transparent
 
   .selected
-    border: 0.5px solid rgba(0, 0, 0, 0.04)
+    border: 1px solid rgba(0, 0, 0, 0.04)
     box-shadow: 0 3px 8px #0000001E, 0 3px 1px #0000000A
     background: #fff
+    padding: 4px
 
 
 
