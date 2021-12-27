@@ -29,3 +29,4 @@ export class ToggleComponent implements OnInit {
     this.onChanged.emit(n);
   }
 }
+

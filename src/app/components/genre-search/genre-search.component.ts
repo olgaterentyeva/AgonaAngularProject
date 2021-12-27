@@ -96,3 +96,4 @@ export class GenreSearchComponent implements ControlValueAccessor {
   }
 
 }
+
