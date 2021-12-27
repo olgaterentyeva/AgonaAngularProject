@@ -4,34 +4,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AboutFilmComponent } from './pages/about-film/about-film.component';
-import { ToggleComponent } from './components/toggle/toggle.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
-import { ButtonComponent } from './components/button/button.component';
-import { FilmComponent } from './components/film/film.component';
-import { GenreSearchComponent } from './components/genre-search/genre-search.component';
+import { FilmInfoComponent } from './pages/film-info/film-info.component';
+import { CollectionComponent } from './pages/collection/collection.component';
+import {ReactiveFormsModule} from "@angular/forms";
 import {OverlayModule} from "@angular/cdk/overlay";
+import { FilmComponent } from './components/film/film.component';
+import {ToggleComponent} from "./components/toggle/toggle.component";
+import { SaveButtonComponent } from './components/save-button/save-button.component';
+import { GenreSearchComponent } from './components/genre-search/genre-search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AboutFilmComponent,
-    ToggleComponent,
-    ButtonComponent,
+    FilmInfoComponent,
+    CollectionComponent,
     FilmComponent,
+    ToggleComponent,
+    SaveButtonComponent,
     GenreSearchComponent,
   ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-      OverlayModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    OverlayModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

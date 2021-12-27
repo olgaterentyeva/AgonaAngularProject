@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AboutFilmComponent} from "./pages/about-film/about-film.component";
+import {FilmInfoComponent} from "./pages/film-info/film-info.component";
+import {CollectionComponent} from "./pages/collection/collection.component";
+
 
 const routes: Routes = [
   {
-    path:'',
-    component:AboutFilmComponent
+    path: '',
+    component: FilmInfoComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'collection',
+    component: CollectionComponent,
   }
 ];
 

@@ -45,7 +45,7 @@ export class GenreSearchComponent implements ControlValueAccessor {
 
   selected: Array<Option> = [];
 
-  onChangeCallback = (v: any) => {
+  onChangeCallback = (v:any) => {
   };
   onTouchedCallback = () => {
   };
@@ -76,6 +76,7 @@ export class GenreSearchComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouchedCallback = fn;
   }
+
 
   removeGenre(genre: Option): void {
     this.selected = this.selected.filter(item => item.value !== genre.value);

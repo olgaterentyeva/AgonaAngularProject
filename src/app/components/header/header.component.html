@@ -1,31 +1,32 @@
 <header class="header__wrapper">
   <div class="header">
     <nav>
-      <a routerLink="/" class="link">
-        <img src="./assets/circle.svg" alt="circle">
+      <a routerLink="/collection" class="link">
+        <img src="../../../assets/header-img/collection-circle.svg" alt="circle">
         Коллекция
       </a>
 
-      <a routerLink="/" class="link">
-        <img src="./assets/plus.svg" class="plus" alt="plus">
+      <a routerLink="/" class="link__active link">
+        <img src="../../../assets/header-img/add-plus.svg" alt="plus">
         Добавить
       </a>
+
     </nav>
 
     <a routerLink="/" class="logo">
-      <img src="./assets/short-logo.svg" alt="logo">
+      <img src="../../../assets/header-img/mini-logo.svg" alt="mini-logo">
     </a>
 
     <div class="actions">
-      <app-button>
-        <img src="./assets/loupe.svg" alt="loupe">
+      <nav>
+      <a routerLink="/" class="link">
+        <img src="../../../assets/header-img/loupe.svg" alt="loupe">
         Поиск
-      </app-button>
-      <img src="./assets/profile.svg" class="avatar" alt="profile">
+      </a>
+      </nav>
+      <img class="avatar" src="../../../assets/header-img/avatar.svg" alt="avatar">
     </div>
-  </div>
-</header>
 
-<main>
-  <ng-content></ng-content>
-</main>
+  </div>
+
+</header>

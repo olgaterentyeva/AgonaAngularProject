@@ -1,4 +1,4 @@
-@import "../../styles/mixins.sass"
+@import "../../styles/mixins"
 
 .header
   display: flex
@@ -8,12 +8,12 @@
   width: 100%
   padding: 15px 32px
 
+
   &__wrapper
     display: flex
     justify-content: center
     width: 100%
     background: rgba(249, 249, 249, 0.94)
-
 
 nav
   display: flex
@@ -26,6 +26,15 @@ nav
     @include regular-text
     letter-spacing: -0.336px
 
+    &:hover
+      text-decoration: underline
+
+    &__active
+      background-color: $c-primary
+      border-radius: 22px
+      color: white
+      padding: 8px 9px
+
     &:not(:last-child)
       margin-right: 42px
 
@@ -36,11 +45,10 @@ nav
       height: 24px
       margin-right: 12px
 
-
 .logo
   width: 47px
   height: 18px
-
+  margin-right: 60px
 
 .actions
   display: flex
@@ -50,3 +58,4 @@ nav
   width: 40px
   height: 40px
   margin-left: 27px
+  cursor: pointer

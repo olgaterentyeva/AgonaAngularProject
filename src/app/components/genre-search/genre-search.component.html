@@ -1,14 +1,15 @@
-<label>Жанр</label>
 <input
-  type="text"
+  placeholder="Выберите из списка"
   #trigger="cdkOverlayOrigin"
   [formControl]="inputSearch"
-  cdkOverlayOrigin
+  cdk-overlay-origin
+  class="genre"
 >
+
 <div class="chips__list">
-  <div class="chips" *ngFor="let selectedItem of selected" (click)="removeGenre(selectedItem)">
+  <button class="chips" *ngFor="let selectedItem of selected" (click)="removeGenre(selectedItem)">
     {{ selectedItem.label }}
-  </div>
+  </button>
 </div>
 
 <ng-template
@@ -18,7 +19,7 @@
   [cdkConnectedOverlayHasBackdrop]="true"
   [cdkConnectedOverlayBackdropClass]="'backdrop'"
   (backdropClick)="close()"
-  [cdkConnectedOverlayWidth]="441"
+  [cdkConnectedOverlayWidth]="375"
 >
   <div class="genre__list">
     <button class="genre" *ngFor="let item of genres" (click)="selectGenre(item)">
@@ -26,3 +27,8 @@
     </button>
   </div>
 </ng-template>
+
+
+
+
+
