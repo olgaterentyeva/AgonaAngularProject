@@ -6,7 +6,8 @@
   <ng-container *ngIf="selected === 0; else other">
 
     <form [formGroup]="form">
-      <label> Название
+
+      <label class="label"> Название
         <input
           class="search"
           type="search"
@@ -37,16 +38,16 @@
 
 <ng-template #other>
   <div class="manualSearch">
-    <label>Название</label>
+    <label class="label">Название</label>
     <input class="search" type="search" placeholder="Например, Титаник">
-    <label>Год</label>
+    <label class="label">Год</label>
     <input class="search" type="search" placeholder="Укажите год выхода фильма">
-    <label>Описание</label>
+    <label class="label">Описание</label>
     <input class="search" type="search" placeholder="Напишите пару слов о сюжете">
-    <label>Жанр</label>
+    <label class="label">Жанр</label>
     <app-genre-search class="search" formControlName="genre"></app-genre-search>
     <div class="poster">
-      <label>Постер</label>
+      <label class="label">Постер</label>
       <img src="assets/poster.svg" alt="poster">
     </div>
     <app-button theme="PRIMARY" class="saveButton">

@@ -10,21 +10,20 @@
 
     h1
       font-family: SF Pro Display, serif
-      font-style: normal
       font-weight: bold
       font-size: 36px
-      line-height: 41px
       margin-top: 72px
       margin-bottom: 35px
       text-align: center
       justify-content: center
       margin-left: 40px
 
+
 .search
   width: 441px
   height: 60px
   border: none
-  border-bottom: 1px solid rgba(60, 60, 67, 0.3)
+  border-bottom: 1px solid $c-borderInput
   background: transparent
   @include normal-style-weight
   @include primary-text
@@ -32,14 +31,11 @@
   margin-left: 50px
   margin-bottom: 16px
 
-label
+.label
   font-family: SF Pro Display, sans-serif
-  font-style: normal
   font-weight: bold
   font-size: 22px
   line-height: 28px
-  letter-spacing: 0.8px
-  color: #000000
   margin-left: 50px
 
 .film
@@ -56,21 +52,10 @@ label
     width: 90px
     height: 110px
 
-  h2
-    color: black
-    margin: 0
-
-  span
-    color: black
-
   &__container
     display: flex
     flex-direction: column
 
-h1
-  margin: 0
-  text-align: center
-  padding-bottom: 37px
 
 .notFound
   display: flex
